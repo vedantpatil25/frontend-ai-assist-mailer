@@ -63,7 +63,7 @@ export default function HomePage() {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-400 dark:text-slate-600">
-          Powered by AI — results may vary
+          © 2026 Vedant Patil. All rights reserved.
         </p>
       </div>
     </div>
