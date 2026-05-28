@@ -2,7 +2,7 @@ import axios from "axios"
 import type { EmailRequest } from "../types/email"
 
 // const BASE_URL = "http://localhost:8080/email"
-const BASE_URL = "https://backend-ai-assist-mailer.onrender.com";
+const BASE_URL = "https://backend-ai-assist-mailer.onrender.com/email";
 
 export const generateEmail = async (
   data: EmailRequest
