@@ -1,13 +1,37 @@
-import axios from "axios";
-import type { EmailRequest, EmailResponse } from "../types/email";
+import axios from "axios"
+import type { EmailRequest } from "../types/email"
 
-// const API_BASE_URL = "http://localhost:8080"
+// const BASE_URL = "http://localhost:8080/email"
 const API_BASE_URL = "https://backend-ai-assist-mailer.onrender.com";
 
 export const generateEmail = async (
-  payload: EmailRequest,
-): Promise<EmailResponse> => {
-  const response = await axios.post(`${API_BASE_URL}/email/generate`, payload);
+  data: EmailRequest
+) => {
 
-  return response.data;
-};
+  let endpoint = "/reply"
+
+  switch (data.action) {
+
+    case "summarize":
+      endpoint = "/summarize"
+      break
+
+    case "rewrite":
+      endpoint = "/rewrite"
+      break
+
+    case "grammar":
+      endpoint = "/grammar"
+      break
+
+    default:
+      endpoint = "/reply"
+  }
+
+  const response = await axios.post(
+    `${BASE_URL}${endpoint}`,
+    data
+  )
+
+  return response.data
+}
